@@ -35,12 +35,13 @@
 #define APFCON1 0x0 //RB2->EUSART:TX;
 #define ADCON0 0x0
 
-    volatile int numChars = 0;
-    volatile char rxdChar[25];  //Character array
-    volatile int num = 0; //Number in the rxdChar character array.
-    volatile int readData = 0;  //We got data bit
-    const char exp = 'LaneLights01\n\r   '; //Expected ID
-   
+    char rxdChar[25];  //Character array
+    int num = 0; //Number in the rxdChar character array.
+    int readData = 0;  //We got data bit
+    char exp[] = "LaneLights01\n\r  "; //Expected ID
+    char val;
+    int start_addr = 0x2100;
+    int loc;
 void EUSART_Init(void) {
     // Set the baud rate to 1200
     SPBRGH = 0x34;
@@ -63,14 +64,6 @@ void EUSART_Write(char data) {
     TXREG = data; // Transmit the data
 }
 
-void EUSART_WriteString(const char *str) {
-    while (*str) {
-        //LATAbits.LATA1 = 1;
-        EUSART_Write(*str++);
-    }
-}
-
-
 //Interrupt routine for ESUART  receiver
 //void __interrupt(high_priority) ISR(numChars)h
  //__interrupt(high_priority) ISR(char *rxdChar)
@@ -88,13 +81,10 @@ __interrupt(high_priority) ISR(void) {
 
 
 void main(void) {
-    //TRISBbits.TRISB2 = 0;   //Set the UART TX port as an output to stop an idle high state
     TRISAbits.TRISA1 = 0;   //Set Diag LED.
     TRISBbits.TRISB1 = 1;
     TRISBbits.TRISB2 = 0;   //Set the UART TX port as an output to stop an idle high state
     LATAbits.LATA1 = 0; //Turn LED on.
-    //char buffer[BUFFER_SIZE];
-    //char tx_buffer[BUFFER_SIZE];
     ANSELBbits.ANSB2 = 0;    //ADC can cause EUSART issues.
     ANSELBbits.ANSB1 = 0;    //ADC can cause EUSART issues.
     CPSCON0 = 0x00;
@@ -111,13 +101,25 @@ void main(void) {
     // Main loop
     while (1) {
         if (readData == 1) {
+            int length = strlen(rxdChar);
+            start_addr=0x2100;
+            for (loc=-1; loc<=length; loc++){
+            EEPROM_WRITE(start_addr, rxdChar[loc]);
+            start_addr++;
+            } 
         TXSTAbits.TXEN = 1; // Enable transmission
-        EUSART_WriteString(rxdChar); // Write the received string back out through EUSART
+        start_addr=0x2100;
+        for (int count=0; count<=length; count++){
+            //EUSART_Write(rxdChar[count]); // Write the received string back out through EUSART
+            EUSART_Write(EEPROM_READ(start_addr));
+                __delay_ms(200);  //Do not remove!!!
+                start_addr++;
+        }
         TXSTAbits.TXEN = 0; // Disable transmission*/
-        if (exp == rxdChar) {
+        //if (exp == rxdChar) {
+        int cmp = strcmp(exp, rxdChar);
+        if(cmp == 0){
             LATAbits.LATA1 = 1; //Turn LED on if the ID is correct.
-            //rxdChar[18] = 'Message Received\n\r';
-            //EUSART_WriteString(rxdChar); // Write the string out through EUSART
         }
         RCSTAbits.CREN = 1; //Enable EUSART receiver continuous receive
         readData = 0; //Reset we got data bit.

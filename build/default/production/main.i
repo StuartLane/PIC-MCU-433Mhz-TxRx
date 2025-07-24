@@ -4578,12 +4578,13 @@ void CLOCK_Initialize(void);
 #pragma config IESO = ON
 #pragma config FCMEN = ON
 # 38 "main.c"
- volatile int numChars = 0;
-    volatile char rxdChar[25];
-    volatile int num = 0;
-    volatile int readData = 0;
-    const char exp = 'LaneLights01\n\r   ';
-
+ char rxdChar[25];
+    int num = 0;
+    int readData = 0;
+    char exp[] = "LaneLights01\n\r  ";
+    char val;
+    int start_addr = 0x2100;
+    int loc;
 void EUSART_Init(void) {
 
     SPBRGH = 0x34;
@@ -4606,14 +4607,6 @@ void EUSART_Write(char data) {
     TXREG = data;
 }
 
-void EUSART_WriteString(const char *str) {
-    while (*str) {
-
-        EUSART_Write(*str++);
-    }
-}
-
-
 
 
 
@@ -4631,13 +4624,10 @@ __attribute__((picinterrupt(("high_priority")))) ISR(void) {
 
 
 void main(void) {
-
     TRISAbits.TRISA1 = 0;
     TRISBbits.TRISB1 = 1;
     TRISBbits.TRISB2 = 0;
     LATAbits.LATA1 = 0;
-
-
     ANSELBbits.ANSB2 = 0;
     ANSELBbits.ANSB1 = 0;
     CPSCON0 = 0x00;
@@ -4654,13 +4644,25 @@ void main(void) {
 
     while (1) {
         if (readData == 1) {
+            int length = strlen(rxdChar);
+            start_addr=0x2100;
+            for (loc=-1; loc<=length; loc++){
+            do{ while (EECON1bits.WR) { continue; } EEADR = (start_addr); EEDATA = (rxdChar[loc]); EECON1 &= 0x3F; STATUSbits.CARRY = 0; if (INTCONbits.GIE) { STATUSbits.CARRY = 1; } INTCONbits.GIE = 0; EECON1bits.WREN = 1; EECON2 = 0x55; EECON2 = 0xAA; EECON1bits.WR = 1; EECON1bits.WREN = 0; if (STATUSbits.CARRY) { INTCONbits.GIE = 1; } } while (0);
+            start_addr++;
+            }
         TXSTAbits.TXEN = 1;
-        EUSART_WriteString(rxdChar);
+        start_addr=0x2100;
+        for (int count=0; count<=length; count++){
+
+            EUSART_Write(( EEADR = start_addr, EECON1 &= 0x3F, EECON1bits.RD = 1, EEDATA));
+                _delay((unsigned long)((200)*(16000000/4000.0)));
+                start_addr++;
+        }
         TXSTAbits.TXEN = 0;
-        if (exp == rxdChar) {
+
+        int cmp = strcmp(exp, rxdChar);
+        if(cmp == 0){
             LATAbits.LATA1 = 1;
-
-
         }
         RCSTAbits.CREN = 1;
         readData = 0;
