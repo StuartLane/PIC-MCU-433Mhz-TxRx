@@ -11,21 +11,27 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/debug/AI_BasedTxRx.X.debug.o
-cinit CODE 0 2E 2E 10 2 1
-text1 CODE 0 95 95 16 2 1
-text2 CODE 0 AB AB A 2 1
-text3 CODE 0 B5 B5 A 2 1
-maintext CODE 0 3E 3E 57 2 1
-cstackCOMMON COMMON 1 70 70 6 1 1
-intentry CODE 0 4 4 28 2 1
-bssBANK0 BANK0 1 20 20 19 1 1
-clrtext CODE 0 BF BF 6 2 1
-bssCOMMON COMMON 1 76 76 4 1 1
+$/tmp/xcXoAcMEj/driver_tmp_15.o
+reset_vec CODE 0 0 0 3 2 1
+end_init CODE 0 45 45 2 2 1
 config CONFIG 4 8007 8007 1 2 1
-$/tmp/xcXBLmgkD/driver_tmp_15.o
-reset_vec CODE 0 0 0 2 2 1
-end_init CODE 0 2C 2C 2 2 1
+$dist/default/debug/AI_BasedTxRx.X.debug.o
+cinit CODE 0 47 47 1D 2 1
+text1 CODE 0 10F 10F 17 2 1
+text2 CODE 0 15A 15A A 2 1
+text3 CODE 0 126 126 17 2 1
+text4 CODE 0 164 164 A 2 1
+text5 CODE 0 14E 14E C 2 1
+maintext CODE 0 64 64 AB 2 1
+cstackCOMMON COMMON 1 70 70 7 1 1
+cstackBANK0 BANK0 1 4F 4F 9 1 1
+inittext CODE 0 16E 16E 6 2 1
+intentry CODE 0 4 4 41 2 1
+bssBANK0 BANK0 1 20 20 1E 1 1
+idataBANK0 CODE 0 13D 13D 11 2 1
+dataBANK0 BANK0 1 3E 3E 11 1 1
+clrtext CODE 0 174 174 6 2 1
+bssCOMMON COMMON 1 77 77 5 1 1
 config CONFIG 4 8007 8007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -33,7 +39,7 @@ config CONFIG 4 8007 8007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 39-6F 1
+RAM 58-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
@@ -46,7 +52,7 @@ RAM 4A0-4EF 1
 RAM 520-56F 1
 RAM 5A0-5EF 1
 RAM 620-64F 1
-BANK0 39-6F 1
+BANK0 58-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
@@ -56,10 +62,10 @@ BANK6 320-36F 1
 BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
-CONST 2-3 2
-CONST C5-1FFF 2
-ENTRY 2-3 2
-ENTRY C5-1FFF 2
+CONST 3-3 2
+CONST 17A-1FFF 2
+ENTRY 3-3 2
+ENTRY 17A-1FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -83,8 +89,8 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-CODE 2-3 2
-CODE C5-1FFF 2
+CODE 3-3 2
+CODE 17A-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -99,13 +105,13 @@ BANK10 520-56F 1
 BANK11 5A0-5EF 1
 BANK12 620-64F 1
 BIGRAM 2000-23EF 1
-COMMON 7A-7D 1
+COMMON 7C-7D 1
 CONFIG 8008-8008 2
 EEDATA F000-F0FF 2
-STRCODE 2-3 2
-STRCODE C5-1FFF 2
-STRING 2-3 2
-STRING C5-1FFF 2
+STRCODE 3-3 2
+STRCODE 17A-1FFF 2
+STRING 3-3 2
+STRING 17A-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -120,100 +126,151 @@ STRING C5-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug/AI_BasedTxRx.X.debug.o
-2E cinit CODE >786:/tmp/xcXBLmgkD/driver_tmp_1.s
-2E cinit CODE >789:/tmp/xcXBLmgkD/driver_tmp_1.s
-2E cinit CODE >822:/tmp/xcXBLmgkD/driver_tmp_1.s
-2F cinit CODE >823:/tmp/xcXBLmgkD/driver_tmp_1.s
-30 cinit CODE >824:/tmp/xcXBLmgkD/driver_tmp_1.s
-31 cinit CODE >825:/tmp/xcXBLmgkD/driver_tmp_1.s
-32 cinit CODE >829:/tmp/xcXBLmgkD/driver_tmp_1.s
-33 cinit CODE >830:/tmp/xcXBLmgkD/driver_tmp_1.s
-34 cinit CODE >831:/tmp/xcXBLmgkD/driver_tmp_1.s
-35 cinit CODE >832:/tmp/xcXBLmgkD/driver_tmp_1.s
-36 cinit CODE >833:/tmp/xcXBLmgkD/driver_tmp_1.s
-37 cinit CODE >834:/tmp/xcXBLmgkD/driver_tmp_1.s
-3A cinit CODE >840:/tmp/xcXBLmgkD/driver_tmp_1.s
-3A cinit CODE >842:/tmp/xcXBLmgkD/driver_tmp_1.s
-3B cinit CODE >843:/tmp/xcXBLmgkD/driver_tmp_1.s
-3C cinit CODE >844:/tmp/xcXBLmgkD/driver_tmp_1.s
-4 intentry CODE >101:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-6 intentry CODE >107:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-8 intentry CODE >108:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-A intentry CODE >110:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-11 intentry CODE >111:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-15 intentry CODE >112:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-1A intentry CODE >112:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-1E intentry CODE >112:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-22 intentry CODE >113:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-24 intentry CODE >116:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-26 intentry CODE >117:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-28 intentry CODE >118:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-2A intentry CODE >120:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-B5 text3 CODE >54:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-B5 text3 CODE >57:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-B7 text3 CODE >58:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-B9 text3 CODE >60:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-BA text3 CODE >61:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-BB text3 CODE >62:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-BC text3 CODE >65:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-BD text3 CODE >66:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-BE text3 CODE >67:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-AB text2 CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-AC text2 CODE >76:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-B1 text2 CODE >77:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-B4 text2 CODE >78:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-95 text1 CODE >80:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-96 text1 CODE >81:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-97 text1 CODE >83:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-A2 text1 CODE >81:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-AA text1 CODE >85:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-3E maintext CODE >123:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-3E maintext CODE >125:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-40 maintext CODE >126:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-41 maintext CODE >127:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-43 maintext CODE >130:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-45 maintext CODE >131:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-46 maintext CODE >132:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-48 maintext CODE >133:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-49 maintext CODE >135:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-4A maintext CODE >136:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-4B maintext CODE >137:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-4D maintext CODE >138:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-4F maintext CODE >143:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-52 maintext CODE >144:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-54 maintext CODE >145:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-56 maintext CODE >146:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-58 maintext CODE >147:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-5A maintext CODE >148:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-5C maintext CODE >149:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-5E maintext CODE >150:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-60 maintext CODE >151:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-62 maintext CODE >152:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-64 maintext CODE >153:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-66 maintext CODE >154:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-68 maintext CODE >155:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-6A maintext CODE >156:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-6C maintext CODE >157:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-6E maintext CODE >158:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-70 maintext CODE >159:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-72 maintext CODE >160:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-74 maintext CODE >161:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-76 maintext CODE >162:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-78 maintext CODE >165:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-7B maintext CODE >174:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-7D maintext CODE >175:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-81 maintext CODE >176:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-83 maintext CODE >177:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-85 maintext CODE >178:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-90 maintext CODE >179:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
-BF clrtext CODE >811:/tmp/xcXBLmgkD/driver_tmp_1.s
-BF clrtext CODE >812:/tmp/xcXBLmgkD/driver_tmp_1.s
-C0 clrtext CODE >813:/tmp/xcXBLmgkD/driver_tmp_1.s
-C0 clrtext CODE >814:/tmp/xcXBLmgkD/driver_tmp_1.s
-C1 clrtext CODE >815:/tmp/xcXBLmgkD/driver_tmp_1.s
-C2 clrtext CODE >816:/tmp/xcXBLmgkD/driver_tmp_1.s
-C3 clrtext CODE >817:/tmp/xcXBLmgkD/driver_tmp_1.s
-C4 clrtext CODE >818:/tmp/xcXBLmgkD/driver_tmp_1.s
+47 cinit CODE >826:/tmp/xcXoAcMEj/driver_tmp_1.s
+47 cinit CODE >829:/tmp/xcXoAcMEj/driver_tmp_1.s
+47 cinit CODE >880:/tmp/xcXoAcMEj/driver_tmp_1.s
+48 cinit CODE >881:/tmp/xcXoAcMEj/driver_tmp_1.s
+49 cinit CODE >882:/tmp/xcXoAcMEj/driver_tmp_1.s
+4A cinit CODE >883:/tmp/xcXoAcMEj/driver_tmp_1.s
+4B cinit CODE >884:/tmp/xcXoAcMEj/driver_tmp_1.s
+4C cinit CODE >885:/tmp/xcXoAcMEj/driver_tmp_1.s
+4D cinit CODE >886:/tmp/xcXoAcMEj/driver_tmp_1.s
+4E cinit CODE >887:/tmp/xcXoAcMEj/driver_tmp_1.s
+4F cinit CODE >888:/tmp/xcXoAcMEj/driver_tmp_1.s
+50 cinit CODE >889:/tmp/xcXoAcMEj/driver_tmp_1.s
+53 cinit CODE >906:/tmp/xcXoAcMEj/driver_tmp_1.s
+54 cinit CODE >907:/tmp/xcXoAcMEj/driver_tmp_1.s
+55 cinit CODE >908:/tmp/xcXoAcMEj/driver_tmp_1.s
+56 cinit CODE >909:/tmp/xcXoAcMEj/driver_tmp_1.s
+57 cinit CODE >910:/tmp/xcXoAcMEj/driver_tmp_1.s
+58 cinit CODE >914:/tmp/xcXoAcMEj/driver_tmp_1.s
+59 cinit CODE >915:/tmp/xcXoAcMEj/driver_tmp_1.s
+5A cinit CODE >916:/tmp/xcXoAcMEj/driver_tmp_1.s
+5B cinit CODE >917:/tmp/xcXoAcMEj/driver_tmp_1.s
+5C cinit CODE >918:/tmp/xcXoAcMEj/driver_tmp_1.s
+5D cinit CODE >919:/tmp/xcXoAcMEj/driver_tmp_1.s
+60 cinit CODE >925:/tmp/xcXoAcMEj/driver_tmp_1.s
+60 cinit CODE >927:/tmp/xcXoAcMEj/driver_tmp_1.s
+61 cinit CODE >928:/tmp/xcXoAcMEj/driver_tmp_1.s
+62 cinit CODE >929:/tmp/xcXoAcMEj/driver_tmp_1.s
+4 intentry CODE >72:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+6 intentry CODE >73:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+D intentry CODE >74:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+11 intentry CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+17 intentry CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+1B intentry CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+25 intentry CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+29 intentry CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+32 intentry CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+36 intentry CODE >75:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+3A intentry CODE >76:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+3C intentry CODE >77:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+41 intentry CODE >78:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+43 intentry CODE >81:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+14E text5 CODE >47:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+14E text5 CODE >49:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+151 text5 CODE >50:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+153 text5 CODE >53:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+154 text5 CODE >54:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+155 text5 CODE >55:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+156 text5 CODE >56:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+157 text5 CODE >59:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+158 text5 CODE >60:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+159 text5 CODE >62:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+164 text4 CODE >64:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+165 text4 CODE >65:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+16A text4 CODE >66:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+16D text4 CODE >67:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+126 text3 CODE >83:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+126 text3 CODE >85:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+129 text3 CODE >87:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+12D text3 CODE >88:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+12E text3 CODE >89:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+12F text3 CODE >90:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+130 text3 CODE >91:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+131 text3 CODE >92:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+133 text3 CODE >93:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+135 text3 CODE >94:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+136 text3 CODE >95:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+137 text3 CODE >96:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+138 text3 CODE >97:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+138 text3 CODE >98:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+13C text3 CODE >99:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+15A text2 CODE >102:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+15A text2 CODE >104:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+15F text2 CODE >105:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+160 text2 CODE >106:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+161 text2 CODE >107:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+162 text2 CODE >108:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+163 text2 CODE >109:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+10F text1 CODE >5:/home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
+110 text1 CODE >7:/home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
+112 text1 CODE >8:/home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
+113 text1 CODE >9:/home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
+117 text1 CODE >8:/home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
+11F text1 CODE >11:/home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
+125 text1 CODE >12:/home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
+64 maintext CODE >112:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+64 maintext CODE >113:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+66 maintext CODE >114:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+67 maintext CODE >115:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+68 maintext CODE >116:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+69 maintext CODE >117:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+6B maintext CODE >118:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+6D maintext CODE >119:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+6E maintext CODE >120:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+70 maintext CODE >121:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+71 maintext CODE >123:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+72 maintext CODE >124:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+73 maintext CODE >125:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+75 maintext CODE >126:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+77 maintext CODE >129:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+7A maintext CODE >134:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+81 maintext CODE >135:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+83 maintext CODE >136:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+8A maintext CODE >137:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+8C maintext CODE >138:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+8F maintext CODE >139:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+97 maintext CODE >140:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+9C maintext CODE >142:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+A8 maintext CODE >143:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+AD maintext CODE >144:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+B4 maintext CODE >144:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+B8 maintext CODE >144:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+BC maintext CODE >145:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+BE maintext CODE >146:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+BF maintext CODE >147:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+C2 maintext CODE >148:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+C4 maintext CODE >151:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+C9 maintext CODE >152:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+CB maintext CODE >153:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+D2 maintext CODE >154:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+DB maintext CODE >155:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+DD maintext CODE >156:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+E0 maintext CODE >157:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+E7 maintext CODE >158:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+F0 maintext CODE >159:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+F5 maintext CODE >160:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+FF maintext CODE >160:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+103 maintext CODE >160:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+107 maintext CODE >161:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+109 maintext CODE >162:/home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+174 clrtext CODE >895:/tmp/xcXoAcMEj/driver_tmp_1.s
+174 clrtext CODE >896:/tmp/xcXoAcMEj/driver_tmp_1.s
+175 clrtext CODE >897:/tmp/xcXoAcMEj/driver_tmp_1.s
+175 clrtext CODE >898:/tmp/xcXoAcMEj/driver_tmp_1.s
+176 clrtext CODE >899:/tmp/xcXoAcMEj/driver_tmp_1.s
+177 clrtext CODE >900:/tmp/xcXoAcMEj/driver_tmp_1.s
+178 clrtext CODE >901:/tmp/xcXoAcMEj/driver_tmp_1.s
+179 clrtext CODE >902:/tmp/xcXoAcMEj/driver_tmp_1.s
+16E inittext CODE >869:/tmp/xcXoAcMEj/driver_tmp_1.s
+16E inittext CODE >870:/tmp/xcXoAcMEj/driver_tmp_1.s
+16F inittext CODE >871:/tmp/xcXoAcMEj/driver_tmp_1.s
+16F inittext CODE >872:/tmp/xcXoAcMEj/driver_tmp_1.s
+170 inittext CODE >873:/tmp/xcXoAcMEj/driver_tmp_1.s
+171 inittext CODE >874:/tmp/xcXoAcMEj/driver_tmp_1.s
+172 inittext CODE >875:/tmp/xcXoAcMEj/driver_tmp_1.s
+173 inittext CODE >876:/tmp/xcXoAcMEj/driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -227,51 +284,63 @@ C4 clrtext CODE >818:/tmp/xcXBLmgkD/driver_tmp_1.s
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-_EUSART_Init 16A 0 CODE 0 text3 dist/default/debug/AI_BasedTxRx.X.debug.o
-__Hspace_0 C5 0 ABS 0 - -
-__Hspace_1 7A 0 ABS 0 - -
+_EUSART_Init 29C 0 CODE 0 text5 dist/default/debug/AI_BasedTxRx.X.debug.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__Hspace_0 17A 0 ABS 0 - -
+__Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 1000F 0 ABS 0 - -
-EUSART_Write@data 71 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__end_of_read_id 2C8 0 CODE 0 text2 dist/default/debug/AI_BasedTxRx.X.debug.o
+EUSART_Write@data 72 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
 _CPSCON0 1E 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 _CPSCON1 1F 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-___sp 0 0 STACK 2 stack /tmp/xcXBLmgkD/driver_tmp_15.o
-_main 7C 0 CODE 0 maintext dist/default/debug/AI_BasedTxRx.X.debug.o
+___sp 0 0 STACK 2 stack /tmp/xcXoAcMEj/driver_tmp_15.o
+_main C8 0 CODE 0 maintext dist/default/debug/AI_BasedTxRx.X.debug.o
 btemp 7E 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcXBLmgkD/driver_tmp_15.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcXBLmgkD/driver_tmp_15.o
-start 58 0 CODE 0 init /tmp/xcXBLmgkD/driver_tmp_15.o
-_EUSART_Write 156 0 CODE 0 text2 dist/default/debug/AI_BasedTxRx.X.debug.o
+___stack_hi 0 0 STACK 2 stack /tmp/xcXoAcMEj/driver_tmp_15.o
+___stack_lo 0 0 STACK 2 stack /tmp/xcXoAcMEj/driver_tmp_15.o
+start 8A 0 CODE 0 init /tmp/xcXoAcMEj/driver_tmp_15.o
+_EUSART_Write 2C8 0 CODE 0 text4 dist/default/debug/AI_BasedTxRx.X.debug.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcXBLmgkD/driver_tmp_15.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcXBLmgkD/driver_tmp_15.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcXBLmgkD/driver_tmp_15.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcXBLmgkD/driver_tmp_15.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcXBLmgkD/driver_tmp_15.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcXBLmgkD/driver_tmp_15.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcXoAcMEj/driver_tmp_15.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcXoAcMEj/driver_tmp_15.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcXoAcMEj/driver_tmp_15.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcXoAcMEj/driver_tmp_15.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcXoAcMEj/driver_tmp_15.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcXoAcMEj/driver_tmp_15.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
+add_id@start_addr 72 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
 wtemp0 7E 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_EUSART_Write 16A 0 CODE 0 text2 dist/default/debug/AI_BasedTxRx.X.debug.o
+_EECON1bits 195 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
+read_id@start_addr 72 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+__end_of_EUSART_Write 2DC 0 CODE 0 text4 dist/default/debug/AI_BasedTxRx.X.debug.o
+_EECON2 196 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
+_EEDATA 193 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
+__end_of_add_id 27A 0 CODE 0 text3 dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - /tmp/xcXBLmgkD/driver_tmp_15.o
-___stacklo 0 0 ABS 0 - /tmp/xcXBLmgkD/driver_tmp_15.o
-start_initialization 5C 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
-EUSART_WriteString@str 73 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+_BAUDCONbits 19F 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
+?_strlen 72 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+___stackhi 0 0 ABS 0 - /tmp/xcXoAcMEj/driver_tmp_15.o
+___stacklo 0 0 ABS 0 - /tmp/xcXoAcMEj/driver_tmp_15.o
+start_initialization 8E 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
 _TRISAbits 8C 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 _TRISBbits 8D 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-clear_ram0 17E 0 CODE 0 clrtext dist/default/debug/AI_BasedTxRx.X.debug.o
+clear_ram0 2E8 0 CODE 0 clrtext dist/default/debug/AI_BasedTxRx.X.debug.o
 _SPBRGH 19C 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 _SPBRGL 19B 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-__end_of_EUSART_WriteString 156 0 CODE 0 text1 dist/default/debug/AI_BasedTxRx.X.debug.o
-___int_sp 0 0 STACK 2 stack /tmp/xcXBLmgkD/driver_tmp_15.o
-__end_of_EUSART_Init 17E 0 CODE 0 text3 dist/default/debug/AI_BasedTxRx.X.debug.o
+__pcstackBANK0 4F 0 BANK0 1 cstackBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
+_read_id 2B4 0 CODE 0 text2 dist/default/debug/AI_BasedTxRx.X.debug.o
+___int_sp 0 0 STACK 2 stack /tmp/xcXoAcMEj/driver_tmp_15.o
+__end_of_EUSART_Init 2B4 0 CODE 0 text5 dist/default/debug/AI_BasedTxRx.X.debug.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -282,7 +351,8 @@ __Hbank6 0 0 ABS 0 bank6 -
 __Hbank7 0 0 ABS 0 bank7 -
 __Hbank8 0 0 ABS 0 bank8 -
 __Hbank9 0 0 ABS 0 bank9 -
-__Hcinit 7C 0 CODE 0 cinit -
+__Hcinit C8 0 CODE 0 cinit -
+__end_of_strlen 24C 0 CODE 0 text1 dist/default/debug/AI_BasedTxRx.X.debug.o
 __Hsfr10 0 0 ABS 0 sfr10 -
 __Hsfr11 0 0 ABS 0 sfr11 -
 __Hsfr12 0 0 ABS 0 sfr12 -
@@ -342,7 +412,8 @@ __Lbank6 0 0 ABS 0 bank6 -
 __Lbank7 0 0 ABS 0 bank7 -
 __Lbank8 0 0 ABS 0 bank8 -
 __Lbank9 0 0 ABS 0 bank9 -
-__Lcinit 5C 0 CODE 0 cinit -
+__Lcinit 8E 0 CODE 0 cinit -
+main@count_440 56 0 BANK0 1 cstackBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Lsfr12 0 0 ABS 0 sfr12 -
@@ -366,11 +437,14 @@ __Lsfr29 0 0 ABS 0 sfr29 -
 __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
+init_ram 2DC 0 CODE 0 inittext dist/default/debug/AI_BasedTxRx.X.debug.o
+__Linittext 0 0 ABS 0 inittext -
+_PORTBbits D 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 _INTCONbits B 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hheap 0 0 HEAP 7 heap -
-__Hinit 58 0 CODE 0 init -
+__Hinit 8A 0 CODE 0 init -
 __Hsfr0 0 0 ABS 0 sfr0 -
 __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
@@ -381,12 +455,12 @@ __Hsfr6 0 0 ABS 0 sfr6 -
 __Hsfr7 0 0 ABS 0 sfr7 -
 __Hsfr8 0 0 ABS 0 sfr8 -
 __Hsfr9 0 0 ABS 0 sfr9 -
-__Hsivt 58 0 CODE 0 sivt -
+__Hsivt 8A 0 CODE 0 sivt -
 __Htext 0 0 ABS 0 text -
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
 __Lheap 0 0 HEAP 7 heap -
-__Linit 58 0 CODE 0 init -
+__Linit 8A 0 CODE 0 init -
 __Lsfr0 0 0 ABS 0 sfr0 -
 __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
@@ -397,20 +471,25 @@ __Lsfr6 0 0 ABS 0 sfr6 -
 __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
-__Lsivt 58 0 CODE 0 sivt -
+__Lsivt 8A 0 CODE 0 sivt -
 __Ltext 0 0 ABS 0 text -
-_EUSART_WriteString 12A 0 CODE 0 text1 dist/default/debug/AI_BasedTxRx.X.debug.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 int$flags 7E 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _ISR 8 0 CODE 0 intentry dist/default/debug/AI_BasedTxRx.X.debug.o
-__S0 C5 0 ABS 0 - -
-__S1 7A 0 ABS 0 - -
+__S0 17A 0 ABS 0 - -
+__S1 7C 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_num 76 0 COMMON 1 bssCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
-__end_of_ISR 58 0 CODE 0 intentry dist/default/debug/AI_BasedTxRx.X.debug.o
+_num 79 0 COMMON 1 bssCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+_add_id 24C 0 CODE 0 text3 dist/default/debug/AI_BasedTxRx.X.debug.o
+__end_of_ISR 8A 0 CODE 0 intentry dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lintentry 8 0 CODE 0 intentry -
-_rxdChar 20 0 BANK0 1 bssBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXBLmgkD/driver_tmp_15.o
+_rxdChar 25 0 BANK0 1 bssBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
+_rxdData 24 0 BANK0 1 bssBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXoAcMEj/driver_tmp_15.o
+strlen@a 75 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+strlen@s 76 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+__pdataBANK0 3E 0 BANK0 1 dataBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _RCSTAbits 19D 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 _PIE1bits 91 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
@@ -436,52 +515,65 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 7C 0 CODE 0 maintext dist/default/debug/AI_BasedTxRx.X.debug.o
+__pmaintext C8 0 CODE 0 maintext dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
+__Hinittext 0 0 ABS 0 inittext -
 _LATAbits 10C 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
+main@count 54 0 BANK0 1 cstackBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
+_strlen 21E 0 CODE 0 text1 dist/default/debug/AI_BasedTxRx.X.debug.o
+_readData 22 0 BANK0 1 bssBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 76 0 COMMON 1 bssCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+__pbssCOMMON 77 0 COMMON 1 bssCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits 11 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-__Lend_init 58 0 CODE 0 end_init -
+__Lend_init 8A 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-end_of_initialization 74 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
-__Hintentry 58 0 CODE 0 intentry -
+end_of_initialization C0 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
+__Hintentry 8A 0 CODE 0 intentry -
+main@length_439 51 0 BANK0 1 cstackBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
+add_id@rxdData 74 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lstrings 0 0 ABS 0 strings -
-__Hreset_vec 4 0 CODE 0 reset_vec -
+__Hreset_vec 6 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__ptext1 12A 0 CODE 0 text1 dist/default/debug/AI_BasedTxRx.X.debug.o
-__ptext2 156 0 CODE 0 text2 dist/default/debug/AI_BasedTxRx.X.debug.o
-__ptext3 16A 0 CODE 0 text3 dist/default/debug/AI_BasedTxRx.X.debug.o
+__ptext1 21E 0 CODE 0 text1 dist/default/debug/AI_BasedTxRx.X.debug.o
+__ptext2 2B4 0 CODE 0 text2 dist/default/debug/AI_BasedTxRx.X.debug.o
+__ptext3 24C 0 CODE 0 text3 dist/default/debug/AI_BasedTxRx.X.debug.o
+__ptext4 2C8 0 CODE 0 text4 dist/default/debug/AI_BasedTxRx.X.debug.o
+__ptext5 29C 0 CODE 0 text5 dist/default/debug/AI_BasedTxRx.X.debug.o
+main@length 53 0 BANK0 1 cstackBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - /tmp/xcXBLmgkD/driver_tmp_15.o
-___heap_lo 0 0 ABS 0 - /tmp/xcXBLmgkD/driver_tmp_15.o
-__end_of__initialization 74 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
+___heap_hi 0 0 ABS 0 - /tmp/xcXoAcMEj/driver_tmp_15.o
+___heap_lo 0 0 ABS 0 - /tmp/xcXoAcMEj/driver_tmp_15.o
+__end_of__initialization C0 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lfunctab 0 0 ENTRY 0 functab -
+__pidataBANK0 27A 0 CODE 0 idataBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
-_numChars 78 0 COMMON 1 bssCOMMON dist/default/debug/AI_BasedTxRx.X.debug.o
 _TXSTAbits 19E 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-__Hend_init 5C 0 CODE 0 end_init -
-__end_of_main 12A 0 CODE 0 maintext dist/default/debug/AI_BasedTxRx.X.debug.o
+_start_addr 20 0 BANK0 1 bssBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
+__Hend_init 8E 0 CODE 0 end_init -
+__end_of_main 21E 0 CODE 0 maintext dist/default/debug/AI_BasedTxRx.X.debug.o
+_EEADR 191 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 _RCREG 199 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 _TXREG 19A 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __pintentry 8 0 CODE 0 intentry dist/default/debug/AI_BasedTxRx.X.debug.o
-__initialization 5C 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__initialization 8E 0 CODE 0 cinit dist/default/debug/AI_BasedTxRx.X.debug.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/debug/AI_BasedTxRx.X.debug.o
 _ANSELBbits 18D 0 ABS 0 - dist/default/debug/AI_BasedTxRx.X.debug.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcXBLmgkD/driver_tmp_15.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcXBLmgkD/driver_tmp_15.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xcXoAcMEj/driver_tmp_15.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xcXoAcMEj/driver_tmp_15.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -507,10 +599,10 @@ ___int_stack_lo 0 0 STACK 2 stack /tmp/xcXBLmgkD/driver_tmp_15.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cstackCOMMON 1 70 70 A 1
-intentry 0 4 8 C1 2
-reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 19 1
+cstackCOMMON 1 70 70 C 1
+intentry 0 4 8 176 2
+reset_vec 0 0 0 3 2
+bssBANK0 1 20 20 38 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

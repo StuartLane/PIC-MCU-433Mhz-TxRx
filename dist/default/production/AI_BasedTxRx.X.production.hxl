@@ -1,24 +1,24 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xcXEpfolM/driver_tmp_3.o
+ /tmp/xcXlFHMMH/driver_tmp_3.o
  -Odist/default/production/AI_BasedTxRx.X.production.hex
  -logfile=dist/default/production/AI_BasedTxRx.X.production.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(/tmp/xcXEpfolM/driver_tmp_3.o)
-  8h - 351h		(/tmp/xcXEpfolM/driver_tmp_3.o)
-  1000Eh - 1000Fh		(/tmp/xcXEpfolM/driver_tmp_3.o)
+  0h - 3h		(/tmp/xcXlFHMMH/driver_tmp_3.o)
+  8h - 365h		(/tmp/xcXlFHMMH/driver_tmp_3.o)
+  1000Eh - 1000Fh		(/tmp/xcXlFHMMH/driver_tmp_3.o)
  Unused ranges:
   4h - 7h
-  352h - 1000Dh
+  366h - 1000Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xcXEpfolM/driver_tmp_3.o)
+  H1 = Input file             (/tmp/xcXlFHMMH/driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -75,6 +75,7 @@
 00000320 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000330 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000340 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000350 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+00000350 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000360 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00010000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
