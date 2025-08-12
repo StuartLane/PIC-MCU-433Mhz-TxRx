@@ -4561,10 +4561,12 @@ char *tempnam(const char *, const char *);
 # 4 "main.c" 2
 
 
+# 1 "/home/stuart/microchip/xc8/v2.46/pic/include/c99/stdbool.h" 1 3
+# 7 "main.c" 2
 # 1 "./../printf_Write2UART.X/mcc_generated_files/system/clock.h" 1
 # 50 "./../printf_Write2UART.X/mcc_generated_files/system/clock.h"
 void CLOCK_Initialize(void);
-# 7 "main.c" 2
+# 8 "main.c" 2
 
 
 
@@ -4577,8 +4579,9 @@ void CLOCK_Initialize(void);
 #pragma config CLKOUTEN = OFF
 #pragma config IESO = ON
 #pragma config FCMEN = ON
-# 38 "main.c"
- char rxdChar[25];
+# 39 "main.c"
+ char rxdChar[16];
+    char idChar[16];
     int num = 0;
     int readData = 0;
     char exp[] = "LaneLights01\n\r  ";
@@ -4586,11 +4589,12 @@ void CLOCK_Initialize(void);
     uint16_t start_addr = 0x00;
     int loc;
     int outputStatus = 0;
-    char rxdData;
+
+    char index;
+    char id0[16];
     char id1[16];
     char id2[16];
     char id3[16];
-    char id4[16];
 
 void EUSART_Init(void) {
 
@@ -4618,12 +4622,14 @@ void EUSART_Write(char data) {
 
 
 __attribute__((picinterrupt(("high_priority")))) ISR(void) {
+
     rxdChar[num] = RCREG;
     num++;
     if (rxdChar == '\n' || rxdChar == '\r' || num >= 16) {
             num = 0;
             readData = 1;
             RCSTAbits.CREN = 0;
+            LATAbits.LATA1 = 0;
         }
 
 }
@@ -4644,7 +4650,7 @@ add_id(uint16_t start_addr, char rxdData){
             EECON1bits.WREN = 0;
             while (EECON1bits.WR == 1){
             }
-            }
+}
 
 
 read_id(uint16_t start_addr){
@@ -4656,6 +4662,54 @@ read_id(uint16_t start_addr){
             return (EEDATA);
 }
 
+set_index0() {
+    start_addr = 0x0;
+    for (uint8_t id_set=0; id_set<=12; id_set++){
+        read_id(start_addr);
+        id0[id_set]=EEDATA;
+        start_addr++;
+        }
+}
+
+
+set_index1() {
+    start_addr = 0x10;
+    for (uint8_t id_set=0; id_set<=16; id_set++){
+        read_id(start_addr);
+        id1[id_set]=EEDATA;
+        start_addr++;
+        }
+}
+
+
+set_index2() {
+    start_addr = 0x20;
+    for (uint8_t id_set=0; id_set<=16; id_set++){
+        read_id(start_addr);
+        id2[id_set]=EEDATA;
+        start_addr++;
+        }
+}
+
+
+set_index3() {
+    start_addr = 0x30;
+    for (uint8_t id_set=0; id_set<=16; id_set++){
+        read_id(start_addr);
+        id3[id_set]=EEDATA;
+        start_addr++;
+        }
+}
+
+
+    _Bool compareIdToRecd(int id[], int rxd[], int compareLength){
+        for(int i = 0; i <compareLength; i++){
+            if(id[i] != rxd[i]){
+                return 0;
+        }
+    }
+        return 1;
+    }
 
 void main(void) {
     TRISAbits.TRISA1 = 0;
@@ -4676,57 +4730,96 @@ void main(void) {
 
     EUSART_Init();
 
-    start_addr = 0x00;
-    for (uint8_t id_set=0; id_set<=16; id_set++){
+    start_addr = 0x41;
     read_id(start_addr);
-    id1[id_set]=EEDATA;
+    index=EEDATA;
 
-    start_addr++;
+    if (index != 0x00 || index != 0x10 || index != 0x20 || index != 0x30) {
+                index = 0x00;
+                start_addr = 0x41;
+                add_id (start_addr, index);
+            }
+
+    if (index == 0x00){
+        set_index0();
     }
+    else if(index == 0x10){
+        set_index0();
+        set_index1();
+    }
+    else if(index == 0x20){
+        set_index0();
+        set_index1();
+        set_index2();
+    }
+    else if(index == 0x30){
+        set_index0();
+        set_index1();
+        set_index2();
+        set_index3();
+    }
+    else {
+
+    }
+
 
 
 
     while (1) {
         if (readData == 1) {
-        TXSTAbits.TXEN = 1;
-        uint8_t length = strlen(rxdChar);
-        start_addr=0x00;
-        for (int count=0; count<=length; count++){
-            read_id(start_addr);
-            EUSART_Write(EEDATA);
+            TXSTAbits.TXEN = 1;
+            int length = 15;
+            start_addr=index;
+                for (int count=0; count<=length; count++){
+                    read_id(start_addr);
 
-            _delay((unsigned long)((200)*(16000000/4000.0)));
-                start_addr++;
-        }
-        if (rxdChar[0,1,2,3,4,5,6,7,8,9,10,11,12] == id1[0,1,2,3,4,5,6,7,8,9,10,11,12]){
-            if (outputStatus == 0){
-            LATAbits.LATA1 = 1;
-            outputStatus = 1;
-        }
-            else {
-                LATAbits.LATA1 = 0;
-                outputStatus = 0;
-            }
-        }
-        TXSTAbits.TXEN = 0;
-        RCSTAbits.CREN = 1;
-        readData = 0;
+                    EUSART_Write(rxdChar[count]);
+                    EUSART_Write(id0[count]);
+                    _delay((unsigned long)((200)*(16000000/4000.0)));
+                    start_addr++;
+                }
+
+
+            if (compareIdToRecd(id0, rxdChar,12)){
+
+
+
+
+
+                    if (outputStatus == 0){
+                        LATAbits.LATA1 = 1;
+                        outputStatus = 1;
+                    }
+                    else {
+                        LATAbits.LATA1 = 0;
+                        outputStatus = 0;
+                    }
+                }
+            TXSTAbits.TXEN = 0;
+            RCSTAbits.CREN = 1;
+            readData = 0;
 
         }
 
         if (PORTBbits.RB0 == 1){
+            RCSTAbits.CREN = 1;
             LATAbits.LATA1 = 1;
+# 283 "main.c"
+            start_addr = index;
+            if (readData == 0) {
 
-                int length = strlen(rxdChar);
-                start_addr=0x00;
+                int length = 15;
                 for (int count=0; count<=length; count++){
-                    rxdData = rxdChar[count];
+                    char rxdData = rxdChar[count];
                     add_id(start_addr, rxdData);
                     start_addr++;
                 }
-                LATAbits.LATA1 = 0;
-                readData = 0;
 
+
+                    set_index0();
+
+
+            }
         }
     }
 }

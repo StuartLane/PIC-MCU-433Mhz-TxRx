@@ -13,17 +13,25 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"47 /home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+"54 /home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
 [v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
-"64
+"71
 [v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
-"72
+"79
 [v _ISR ISR `II(i  1 e 2 0 ]
-"83
+"91
 [v _add_id add_id `(i  1 e 2 0 ]
-"102
+"109
 [v _read_id read_id `(i  1 e 2 0 ]
-"112
+"118
+[v _set_index0 set_index0 `(i  1 e 2 0 ]
+"128
+[v _set_index1 set_index1 `(i  1 e 2 0 ]
+"138
+[v _set_index2 set_index2 `(i  1 e 2 0 ]
+"148
+[v _set_index3 set_index3 `(i  1 e 2 0 ]
+"157
 [v _main main `(v  1 e 1 0 ]
 [s S133 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
@@ -42,7 +50,7 @@
 ]
 [u S147 . 1 `S133 1 . 1 0 `S142 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES147  1 e 1 @11 ]
-[s S289 . 1 `uc 1 RB0 1 0 :1:0 
+[s S293 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -52,8 +60,8 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "508
-[u S298 . 1 `S289 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES298  1 e 1 @13 ]
+[u S302 . 1 `S293 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES302  1 e 1 @13 ]
 [s S87 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -196,26 +204,38 @@
 [v _BAUDCONbits BAUDCONbits `VES54  1 e 1 @415 ]
 "38 /home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
 [v _rxdChar rxdChar `[25]uc  1 e 25 0 ]
-"39
-[v _num num `i  1 e 2 0 ]
 "40
+[v _num num `i  1 e 2 0 ]
+"41
 [v _readData readData `i  1 e 2 0 ]
-"43
+"44
 [v _start_addr start_addr `us  1 e 2 0 ]
-"45
-[v _rxdData rxdData `uc  1 e 1 0 ]
-"112
+"46
+[v _outputStatus outputStatus `i  1 e 2 0 ]
+"48
+[v _index index `uc  1 e 1 0 ]
+"49
+[v _id0 id0 `[16]uc  1 e 16 0 ]
+"50
+[v _id1 id1 `[16]uc  1 e 16 0 ]
+"51
+[v _id2 id2 `[16]uc  1 e 16 0 ]
+"52
+[v _id3 id3 `[16]uc  1 e 16 0 ]
+"157
 [v _main main `(v  1 e 1 0 ]
 {
-"156
-[v main@count_440 count `i  1 a 2 7 ]
-"154
-[v main@length_439 length `i  1 a 2 2 ]
-"138
-[v main@count count `i  1 a 2 5 ]
-"136
+"236
+[v main@rxdData rxdData `uc  1 a 1 5 ]
+"235
+[v main@count_462 count `i  1 a 2 8 ]
+"207
+[v main@count count `i  1 a 2 6 ]
+"233
+[v main@length_461 length `i  1 a 2 2 ]
+"205
 [v main@length length `uc  1 a 1 4 ]
-"166
+"245
 } 0
 "5 /home/stuart/microchip/xc8/v2.46/pic/sources/c99/common/strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -229,34 +249,62 @@
 [v strlen@s s `*.4DCuc  1 a 1 6 ]
 "12
 } 0
-"102 /home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+"148 /home/stuart/MPLABXProjects/AI_BasedTxRx.X/main.c
+[v _set_index3 set_index3 `(i  1 e 2 0 ]
+{
+"150
+[v set_index3@id_set id_set `uc  1 a 1 5 ]
+"155
+} 0
+"138
+[v _set_index2 set_index2 `(i  1 e 2 0 ]
+{
+"140
+[v set_index2@id_set id_set `uc  1 a 1 5 ]
+"145
+} 0
+"128
+[v _set_index1 set_index1 `(i  1 e 2 0 ]
+{
+"130
+[v set_index1@id_set id_set `uc  1 a 1 5 ]
+"135
+} 0
+"118
+[v _set_index0 set_index0 `(i  1 e 2 0 ]
+{
+"120
+[v set_index0@id_set id_set `uc  1 a 1 5 ]
+"125
+} 0
+"109
 [v _read_id read_id `(i  1 e 2 0 ]
 {
 [v read_id@start_addr start_addr `us  1 p 2 2 ]
-"109
+"116
 } 0
-"83
+"91
 [v _add_id add_id `(i  1 e 2 0 ]
 {
 [v add_id@start_addr start_addr `us  1 p 2 2 ]
 [v add_id@rxdData rxdData `uc  1 p 1 4 ]
-"99
+"106
 } 0
-"64
+"71
 [v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
 {
 [v EUSART_Write@data data `uc  1 a 1 wreg ]
 [v EUSART_Write@data data `uc  1 a 1 wreg ]
 [v EUSART_Write@data data `uc  1 a 1 2 ]
-"67
+"74
 } 0
-"47
+"54
 [v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
 {
-"62
+"69
 } 0
-"72
+"79
 [v _ISR ISR `II(i  1 e 2 0 ]
 {
-"81
+"88
 } 0
